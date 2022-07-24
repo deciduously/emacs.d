@@ -57,17 +57,22 @@
 (use-package all-the-icons)
 (use-package find-file-in-project)
 
+(require 'init-neotree)
 (require 'init-which-key)
 
 (use-package js2-mode)
 (use-package web-mode)
+
+; Open the neotree buffer using F8.
+(global-set-key [f8] 'neotree-toggle)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(web-mode js2-mode which-key find-file-in-project all-the-icons use-package)))
+   '(neotree web-mode js2-mode which-key find-file-in-project all-the-icons use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
