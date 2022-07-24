@@ -9,8 +9,7 @@
 
 # Undo-tree save-files
 *.~undo-tree
-<<<<<<< HEAD
-=======
+
 /elpa
 /backups
 network-security.data
@@ -20,4 +19,8 @@ auto-save-list/
 /url
 
 .DS_Store
->>>>>>> 8878aa3 (initial commit)
+.cache/
+**/*.#*
+.lsp-session*
+transient/
+projectile-bookmarks.eld
