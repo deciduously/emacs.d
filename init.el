@@ -30,3 +30,47 @@
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
+;; use-package setup
+(require 'package)
+(setq package-enable-at-startup nil) ; dont do it immediately
+(setq package-archives '(("org"       . "http://orgmode.org/elpa/")
+			 ("gnu"       . "http://elpa.gnu.org/packages/")
+			 ("melpa"     . "https://melpa.org/packages/")))
+(package-initialize)
+
+;; Bootstap use-package
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents) ; update archives
+  (package-install 'use-package)) ; grab the newest use-package
+
+;; Define packages
+(require 'use-package)
+
+;; Always download if not available
+(setq use-package-always-ensure t)
+
+;; Pull in ./lisp/*
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+(setq-default flycheck-emacs-lisp-load-path load-path)
+
+;; Start stuff up
+(use-package all-the-icons)
+(use-package find-file-in-project)
+
+(require 'init-which-key)
+
+(use-package js2-mode)
+(use-package web-mode)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(web-mode js2-mode which-key find-file-in-project all-the-icons use-package)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
