@@ -9,3 +9,15 @@
 
 # Undo-tree save-files
 *.~undo-tree
+<<<<<<< HEAD
+=======
+/elpa
+/backups
+network-security.data
+recentf
+*~
+auto-save-list/
+/url
+
+.DS_Store
+>>>>>>> 8878aa3 (initial commit)
