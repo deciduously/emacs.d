@@ -3,6 +3,14 @@
 ;;; Commentary:
 ;;; Adopted from previous revision.
 ;;; Code:
+(let ((file-name-handler-alist nil))
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (message "Emacs ready in %s with %d garbage collections."
+                     (format "%.2f seconds"
+                             (float-time
+                              (time-subtract after-init-time before-init-time)))
+                     gcs-done)))
 ;; How to manage backup files.  I just turned this feature off.
 (setq delete-old-versions -1 )
 ;; Make numberic backup versions with no limit.
@@ -53,8 +61,36 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (setq-default flycheck-emacs-lisp-load-path load-path)
 
+(defmacro measure-time (&rest body)
+  "Measure the time it takes to evaluate BODY."
+  `(let ((time (current-time)))
+     ,@body
+     (message "%.06f" (float-time (time-since time)))))
+
 ;; Start stuff up
 (use-package all-the-icons)
+(use-package gist
+  :custom
+  (gist-view-gist t "Automatically open new gists in browser"))
+(use-package esup)
+(use-package markdown-mode
+  :hook
+  (markdown-mode . visual-line-mode)
+  (markdown-mode . variable-pitch-mode))
+(use-package undo-tree
+  :ensure t
+  :diminish undo-tree-mode
+  :config
+  (global-undo-tree-mode 1))
+(use-package lorem-ipsum)
+(use-package restart-emacs)
+
+(use-package multiple-cursors
+  :bind
+  ("C-c m c"   . mc/edit-lines)
+  ("C-c m <"   . mc/mark-next-like-this)
+  ("C-c m >"   . mc/mark-previous-like-this)
+  ("C-c m C-<" . mc/mark-all-like-this))
 
 (require 'init-company)
 (require 'init-projectile)
@@ -71,7 +107,8 @@
 
 (use-package underwater-theme)
 (load-theme 'underwater t) ; the t value answers the safety prompt.
-
+(setq gc-cons-threshold (* 2 1000 1000))
+)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -80,7 +117,7 @@
  '(custom-safe-themes
    '("db7f422324a763cfdea47abf0f931461d1493f2ecf8b42be87bbbbbabf287bfe" default))
  '(package-selected-packages
-   '(rebase-mode magit-blame treemacs-tab-bar treemacs-persp treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs counsel ivy company flycheck neotree web-mode js2-mode which-key find-file-in-project all-the-icons use-package)))
+   '(esup gist restart-emacs multiple-cursors lorem-ipsum typopunct rebase-mode magit-blame treemacs-tab-bar treemacs-persp treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs counsel ivy company flycheck neotree web-mode js2-mode which-key find-file-in-project all-the-icons use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
