@@ -137,6 +137,7 @@
 
 (use-package exec-path-from-shell
   :defer nil
+  :ensure t
   :config
   (exec-path-from-shell-initialize))
 
