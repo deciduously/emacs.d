@@ -26,3 +26,4 @@ transient/
 projectile-bookmarks.eld
 .dap-breakpoints
 **/.#*
+eshell/

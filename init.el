@@ -83,6 +83,8 @@
 (use-package restart-emacs)
 (use-package racket-mode)
 (use-package yaml-mode)
+(use-package mood-line
+  :init (mood-line-mode))
 
 (use-package flyspell
   :defer 1
@@ -134,7 +136,7 @@
  '(custom-safe-themes
    '("db7f422324a763cfdea47abf0f931461d1493f2ecf8b42be87bbbbbabf287bfe" default))
  '(package-selected-packages
-   '(iedit rainbow-delimiters org-mode yaml-mode racket-mode dockerfile-mode esup gist restart-emacs multiple-cursors lorem-ipsum typopunct rebase-mode magit-blame treemacs-tab-bar treemacs-persp treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs counsel ivy company flycheck neotree web-mode js2-mode which-key find-file-in-project all-the-icons use-package)))
+   '(mood-line iedit rainbow-delimiters org-mode yaml-mode racket-mode dockerfile-mode esup gist restart-emacs multiple-cursors lorem-ipsum typopunct rebase-mode magit-blame treemacs-tab-bar treemacs-persp treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs counsel ivy company flycheck neotree web-mode js2-mode which-key find-file-in-project all-the-icons use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
