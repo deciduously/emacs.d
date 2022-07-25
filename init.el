@@ -69,11 +69,16 @@
 (use-package js2-mode)
 (use-package web-mode)
 
+(use-package underwater-theme)
+(load-theme 'underwater t) ; the t value answers the safety prompt.
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("db7f422324a763cfdea47abf0f931461d1493f2ecf8b42be87bbbbbabf287bfe" default))
  '(package-selected-packages
    '(magit-blame treemacs-tab-bar treemacs-persp treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs counsel ivy company flycheck neotree web-mode js2-mode which-key find-file-in-project all-the-icons use-package)))
 (custom-set-faces

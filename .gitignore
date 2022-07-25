@@ -24,3 +24,5 @@ auto-save-list/
 .lsp-session*
 transient/
 projectile-bookmarks.eld
+.dap-breakpoints
+**/.#*
