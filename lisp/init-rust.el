@@ -33,5 +33,7 @@
   (when buffer-file-name
     (setq-local buffer-save-without-query t)))
 
+(use-package rust-playground)
+
 (provide 'init-rust)
 ;;; init-rust.el ends here

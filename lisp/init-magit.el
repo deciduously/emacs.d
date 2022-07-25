@@ -7,15 +7,11 @@
 ;;; Code:
 (use-package magit
   :commands magit-get-top-dir
-  :bind (("C-c g" . magit-status)
-         ("C-c C-g l" . magit-file-log)
+  :bind (("C-x g" . magit-status)
+         ("C-x C-g l" . magit-file-log)
          ("C-c f" . magit-grep))
   :init
   (progn
-    ;; magit extensions
-    (use-package magit-blame
-      :bind ("C-c C-g b" . magit-blame-mode))
-
     ;; we no longer need vc-git
     (delete 'Git vc-handled-backends)
     ;; make magit status go full-screen but remember previous window
@@ -63,9 +59,6 @@
 
     (define-key magit-mode-map "c" 'magit-maybe-commit)
 
-    ;; major mode for editing `git rebase -i` files
-    (use-package rebase-mode)
-
     ;; magit settings
     (setq
      ;; use ido to look for branches
@@ -88,3 +81,5 @@
 
 (provide 'init-magit)
 ;;; init-magit.el ends here
+
+

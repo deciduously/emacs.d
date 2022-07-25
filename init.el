@@ -80,7 +80,7 @@
  '(custom-safe-themes
    '("db7f422324a763cfdea47abf0f931461d1493f2ecf8b42be87bbbbbabf287bfe" default))
  '(package-selected-packages
-   '(magit-blame treemacs-tab-bar treemacs-persp treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs counsel ivy company flycheck neotree web-mode js2-mode which-key find-file-in-project all-the-icons use-package)))
+   '(rebase-mode magit-blame treemacs-tab-bar treemacs-persp treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs counsel ivy company flycheck neotree web-mode js2-mode which-key find-file-in-project all-the-icons use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
