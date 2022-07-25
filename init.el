@@ -170,6 +170,7 @@
   (interactive)
   (text-scale-set 0))
 (bind-key "M-=" 'zz/text-scale-reset)
+(bind-key "C-`" 'vterm-other-window)
 
 
 ;; Close let statmeent at top of file.
