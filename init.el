@@ -77,11 +77,6 @@
   :hook
   (markdown-mode . visual-line-mode)
   (markdown-mode . variable-pitch-mode))
-(use-package undo-tree
-  :ensure t
-  :diminish undo-tree-mode
-  :config
-  (global-undo-tree-mode 1))
 (use-package lorem-ipsum)
 (use-package restart-emacs)
 
