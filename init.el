@@ -3,6 +3,7 @@
 ;;; Commentary:
 ;;; Adopted from previous revision.
 ;;; Code:
+;; Performance optimization - this let block closes at the bottom of the file.
 (let ((file-name-handler-alist nil))
 (add-hook 'emacs-startup-hook
           (lambda ()
@@ -78,7 +79,20 @@
   (markdown-mode . visual-line-mode)
   (markdown-mode . variable-pitch-mode))
 (use-package lorem-ipsum)
+(use-package dockerfile-mode)
 (use-package restart-emacs)
+(use-package racket-mode)
+(use-package yaml-mode)
+
+(use-package flyspell
+  :defer 1
+  :diminish)
+
+(use-package iedit
+  :config
+  (set-face-background 'iedit-occurrence "Magenta")
+  :bind
+  ("C-;" . iedit-mode))
 
 (use-package multiple-cursors
   :bind
@@ -87,6 +101,10 @@
   ("C-c m >"   . mc/mark-previous-like-this)
   ("C-c m C-<" . mc/mark-all-like-this))
 
+(use-package rainbow-delimiters
+  :hook
+  ((prog-mode rustic-mode) . rainbow-delimiters-mode))
+
 (require 'init-company)
 (require 'init-projectile)
 (require 'init-flycheck)
@@ -94,6 +112,8 @@
 (require 'init-ivy)
 (require 'init-lsp)
 (require 'init-rust)
+(require 'init-perl)
+;(require 'init-org)
 (require 'init-treemacs)
 (require 'init-which-key)
 
@@ -102,6 +122,8 @@
 
 (use-package underwater-theme)
 (load-theme 'underwater t) ; the t value answers the safety prompt.
+
+;; Close let statmeent at top of file.
 (setq gc-cons-threshold (* 2 1000 1000))
 )
 (custom-set-variables
@@ -112,7 +134,7 @@
  '(custom-safe-themes
    '("db7f422324a763cfdea47abf0f931461d1493f2ecf8b42be87bbbbbabf287bfe" default))
  '(package-selected-packages
-   '(esup gist restart-emacs multiple-cursors lorem-ipsum typopunct rebase-mode magit-blame treemacs-tab-bar treemacs-persp treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs counsel ivy company flycheck neotree web-mode js2-mode which-key find-file-in-project all-the-icons use-package)))
+   '(iedit rainbow-delimiters org-mode yaml-mode racket-mode dockerfile-mode esup gist restart-emacs multiple-cursors lorem-ipsum typopunct rebase-mode magit-blame treemacs-tab-bar treemacs-persp treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs counsel ivy company flycheck neotree web-mode js2-mode which-key find-file-in-project all-the-icons use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
