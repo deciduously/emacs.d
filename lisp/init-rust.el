@@ -2,19 +2,19 @@
 ;;; #init-rust.el
 ;;; Commentary:
 ;;; Install all Rust related packages
-;;; 
+;;;
 ;;; Code:
 (use-package rustic
   :ensure
   :bind (:map rustic-mode-map
               ("M-j" . lsp-ui-imenu)
               ("M-?" . lsp-find-references)
-              ("C-c C-c l" . flycheck-list-errors)
-              ("C-c C-c a" . lsp-execute-code-action)
-              ("C-c C-c r" . lsp-rename)
-              ("C-c C-c q" . lsp-workspace-restart)
-              ("C-c C-c Q" . lsp-workspace-shutdown)
-              ("C-c C-c s" . lsp-rust-analyzer-status))
+              ("C-c r l" . flycheck-list-errors)
+              ("C-c r a" . lsp-execute-code-action)
+              ("C-c r r" . lsp-rename)
+              ("C-c r q" . lsp-workspace-restart)
+              ("C-c r Q" . lsp-workspace-shutdown)
+              ("C-c r s" . lsp-rust-analyzer-status))
   :config
   ;; uncomment for less flashiness
   ;; (setq lsp-eldoc-hook nil)

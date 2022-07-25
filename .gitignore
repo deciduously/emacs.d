@@ -27,3 +27,5 @@ projectile-bookmarks.eld
 .dap-breakpoints
 **/.#*
 eshell/
+places
+rust-playground/

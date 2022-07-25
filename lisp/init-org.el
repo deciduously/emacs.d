@@ -7,25 +7,32 @@
   ;;    :pin manual
   :load-path ("lisp/org-mode/lisp" "lisp/org-mode/lisp/contrib/lisp")
   :bind
-  (:map org-mode-map
-	(org-special-ctrl-a/e t)
-	(org-special-ctrl-k t)
-	("C-c l" . org-store-link)
-	("A-h" . org-mark-element))
+  ("C-c l" . org-store-link)
+  ("C-c a" . org-agenda)
+  ("C-c c" . org-capture)
+  ("C-c o" . (lambda () (interactive) (find-file "~/org/organizer.org")))
   :custom
-  <<org-mode-custom-vars>>
-  :custom-face
-  <<org-mode-faces>>
-  :hook
-  <<org-mode-hooks>>
+   (org-use-speed-commands
+	 (lambda ()
+	   (and (looking-at org-outline-regexp)
+		(looking-back "^\**"))))
+  ;:custom-face
+  ; <<org-mode-faces>>
+  ;:hook
+  ; <<org-mode-hooks>>
   :config
-  (org-directory "~/org")
-  (org-log-done t)
-  (org-startup-indented t)
-  (org-log-into-drawer t)
+  (progn
+    (setq org-directory "~/org")
+    (setq org-log-done t)
+    (setq org-startup-indented t)
+    (setq org-log-into-drawer t)
+    (setq org-special-ctrl-a/e t)
+    (setq org-special-ctrl-k t)))
+
   (use-package org-indent
   :ensure nil
   :diminish
   :custom
-  (org-indent-indentation-per-level 4)))
+  (org-indent-indentation-per-level 4))
+(provide 'init-org)
 ;;; init-org.el ends here
