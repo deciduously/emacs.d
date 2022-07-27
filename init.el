@@ -153,10 +153,24 @@
 (require 'init-perl)
 (require 'init-org)
 (require 'init-treemacs)
+(require 'init-typescript)
 (require 'init-which-key)
 
 (use-package js2-mode)
 (use-package web-mode)
+(use-package prettier-js)
+(use-package json-mode)
+(add-hook 'json-mode-hook #'flycheck-mode)
+(add-hook 'js2-mode-hook 'prettier-js-mode)
+(defun enable-minor-mode (my-pair)
+  "Enable minor mode if filename match the regexp.  MY-PAIR is a cons cell (regexp . minor-mode)."
+  (if (buffer-file-name)
+      (if (string-match (car my-pair) buffer-file-name)
+	  (funcall (cdr my-pair)))))
+(add-hook 'web-mode-hook #'(lambda ()
+                            (enable-minor-mode
+                             '("\\.jsx?\\'" . prettier-js-mode))))
+(add-hook 'web-mode-hook 'prettier-js-mode)
 
 (use-package underwater-theme)
 (load-theme 'underwater t) ; the t value answers the safety prompt.
@@ -188,7 +202,7 @@
  '(kill-whole-line t)
  '(mouse-yank-at-point t)
  '(package-selected-packages
-   '(vterm rg use-package-ensure-system-package exec-path-from-shell mood-line iedit rainbow-delimiters org-mode yaml-mode racket-mode dockerfile-mode esup gist restart-emacs multiple-cursors lorem-ipsum typopunct rebase-mode magit-blame treemacs-tab-bar treemacs-persp treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs counsel ivy company flycheck neotree web-mode js2-mode which-key find-file-in-project all-the-icons use-package))
+   '(json-mode prettier-js vterm rg use-package-ensure-system-package exec-path-from-shell mood-line iedit rainbow-delimiters org-mode yaml-mode racket-mode dockerfile-mode esup gist restart-emacs multiple-cursors lorem-ipsum typopunct rebase-mode magit-blame treemacs-tab-bar treemacs-persp treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs counsel ivy company flycheck neotree web-mode js2-mode which-key find-file-in-project all-the-icons use-package))
  '(read-buffer-completion-ignore-case t)
  '(read-file-name-completion-ignore-case t)
  '(show-trailing-whitespace t))
