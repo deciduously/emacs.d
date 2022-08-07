@@ -19,7 +19,7 @@ auto-save-list/
 /url
 
 .DS_Store
-.cache/
+**/*.cache*
 **/*.#*
 .lsp-session*
 transient/

@@ -154,6 +154,7 @@
 (require 'init-rust)
 (require 'init-perl)
 (require 'init-org)
+(require 'init-smartparens)
 (require 'init-treemacs)
 (require 'init-typescript)
 (require 'init-which-key)
@@ -204,7 +205,7 @@
  '(kill-whole-line t)
  '(mouse-yank-at-point t)
  '(package-selected-packages
-   '(pdf-tools json-mode prettier-js vterm rg use-package-ensure-system-package exec-path-from-shell mood-line iedit rainbow-delimiters org-mode yaml-mode racket-mode dockerfile-mode esup gist restart-emacs multiple-cursors lorem-ipsum typopunct rebase-mode magit-blame treemacs-tab-bar treemacs-persp treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs counsel ivy company flycheck neotree web-mode js2-mode which-key find-file-in-project all-the-icons use-package))
+   '(smartparens pdf-tools json-mode prettier-js vterm rg use-package-ensure-system-package exec-path-from-shell mood-line iedit rainbow-delimiters org-mode yaml-mode racket-mode dockerfile-mode esup gist restart-emacs multiple-cursors lorem-ipsum typopunct rebase-mode magit-blame treemacs-tab-bar treemacs-persp treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs counsel ivy company flycheck neotree web-mode js2-mode which-key find-file-in-project all-the-icons use-package))
  '(read-buffer-completion-ignore-case t)
  '(read-file-name-completion-ignore-case t)
  '(show-trailing-whitespace t))
